@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="azuredevops-cicd-test-api-test-suite.xml" />
+	<munit:test name="azuredevops-cicd-test-api-test-suite-azuredevops-cicd-test-apiFlowTest" doc:id="5d89c47f-c38d-4c9a-9fe1-59f160bffdf1" description="Test">
+		<munit:execution >
+			<munit:set-event doc:name="Set Event" doc:id="a7ac23c1-283e-46e1-bb4d-20913f50d67e" >
+				<munit:attributes value="#[{'queryParams':{'url_key':'payload_2'}}] " />
+			</munit:set-event>
+			<flow-ref doc:name="Flow-ref to azuredevops-cicd-test-apiFlow" doc:id="a9a82612-794b-4894-ad7f-bf3595eb9fbf" name="azuredevops-cicd-test-apiFlow"/>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-that doc:name="Assert that" doc:id="617dc0e7-34f6-4cfd-8c14-599ac5421aca" is='#[MunitTools::equalTo("response_payload_2")]' expression="#[payload]"/>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="azuredevops-cicd-test-api-test-suite-azuredevops-cicd-test-apiFlowTest1" doc:id="1d5fe8ee-1462-4f42-9b0f-87f7aa706497" description="Test">
+		<munit:execution >
+			<munit:set-event doc:name="Set Event" doc:id="c2ac16b3-af2b-4b95-b81f-8792aaa9a86e" >
+				<munit:attributes value="#[{'queryParams':{'url_key':'payload_1'}}] " />
+			</munit:set-event>
+			<flow-ref doc:name="Flow-ref to azuredevops-cicd-test-apiFlow" doc:id="576f4068-4cf2-4a8d-92cd-6b6cfb6b92cc" name="azuredevops-cicd-test-apiFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="dea8ae25-ca3a-43bf-b810-ac650fc88121" expression="#[payload]" is='#[MunitTools::equalTo("response_payload_1")]'/>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>
