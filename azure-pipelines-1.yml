@@ -17,9 +17,11 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
-  
-- script: wget https://github.com/github/codeql-action/releases/latest/download/codeql-runner-linux
+
+- script: |
+  wget https://github.com/github/codeql-action/releases/latest/download/codeql-runner-linux
   displayName: 'Get latest CodeQL package. Install on Agent.'
+
 - script: |
   ./codeql-runner-linux analyze \
     --repository yhampl3/mulerepo \
