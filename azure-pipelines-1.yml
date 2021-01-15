@@ -24,14 +24,10 @@ steps:
 - script:  chmod +x codeql-runner-linux
   displayName: 'change permission on codeql-runner.'
 
-- script:  ./codeql-runner-linux init \
-    --repository yhampl3/mulerepo \
-    --github-url https://github.com \
-  displayName: 'Initialize CodeQ Executable and create a CodeQL database.'
+- script: |
+    ./codeql-runner-linux init --repository yhampl3/mulerepo --github-url https://github.com 
+ displayName: 'Initialize CodeQ Executable and create a CodeQL database'
 
-- script:  ./codeql-runner-linux analyze \
-    --repository yhampl3/mulerepo \
-    --github-url https://github.com \
-    --commit \
-    --ref main
+- script: |
+    ./codeql-runner-linux analyze --repository yhampl3/mulerepo --github-url https://github.com --commit --ref main
   displayName: 'Populate the CodeQL runner databases, analyze them, and upload the results to GitHub.'
