@@ -1,0 +1,32 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+  condition: 
+- script: |
+  wget https://github.com/github/codeql-action/releases/latest/download/codeql-runner-linux
+  chmod +x codeql-runner-linux
+  displayName: 'Get latest CodeQL package. Install on Agent.'
+
+- script: |
+  ./codeql-runner-linux analyze \
+  --repository yhampl3/mulerepo \
+  --github-url https://github.com \
+  --commit $(Build.SourceVersion) \
+  --ref main
+  displayName: 'Populate the CodeQL runner databases, analyze them, and upload the results to GitHub.'
