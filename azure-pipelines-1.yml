@@ -12,4 +12,7 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+- script: wget https://github.com/github/codeql-action/releases/latest/download/codeql-runner-linux
+  chmod +x codeql-runner-linux
+  displayName: 'Get latest CodeQL package. Install on Agent.'
 
