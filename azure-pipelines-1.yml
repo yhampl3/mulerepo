@@ -26,8 +26,8 @@ steps:
 
 - script: |
   ./codeql-runner-linux init \
-   --repository yhampl3/mulerepo \
-   --github-url https://github.com \
+    --repository yhampl3/mulerepo \
+    --github-url https://github.com \
   displayName: 'Initialize CodeQ Executable and create a CodeQL database.'
 
 - script: |
