@@ -17,7 +17,7 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
-  condition: 
+
 - script: |
   wget https://github.com/github/codeql-action/releases/latest/download/codeql-runner-linux
   chmod +x codeql-runner-linux
