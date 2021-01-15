@@ -19,10 +19,9 @@ steps:
   displayName: 'Run a multi-line script'
 
 - script:  wget https://github.com/github/codeql-action/releases/latest/download/codeql-runner-linux
-    chmod +x codeql-runner-linux
   displayName: 'Get latest CodeQL package. Install on Agent.'
 
-- script:   hmod +x codeql-runner-linux
+- script:  chmod +x codeql-runner-linux
   displayName: 'change permission on codeql-runner.'
 
 - script:  ./codeql-runner-linux analyze \
