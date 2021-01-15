@@ -25,9 +25,9 @@ steps:
   displayName: 'change permission on codeql-runner.'
 
 - script: |
-    ./codeql-runner-linux init --repository yhampl3/mulerepo --github-url https://github.com --github-auth b059c5cbc1e51563e8adb08a01a6a86d002f095e
+    ./codeql-runner-linux init --repository yhampl3/mulerepo --github-url https://github.com --github-auth 5ade1bafb8ef409d8b059e650ded17bcc7d714ff
   displayName: 'Initialize CodeQ Executable and create a CodeQL database'
 
 - script: |
-    ./codeql-runner-linux analyze --repository yhampl3/mulerepo --github-url https://github.com --github-auth b059c5cbc1e51563e8adb08a01a6a86d002f095e --commit --ref main
+    ./codeql-runner-linux analyze --repository yhampl3/mulerepo --github-url https://github.com --github-auth 5ade1bafb8ef409d8b059e650ded17bcc7d714ff --commit --ref main
   displayName: 'Populate the CodeQL runner databases, analyze them, and upload the results to GitHub.'
