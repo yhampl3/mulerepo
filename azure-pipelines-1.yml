@@ -16,7 +16,7 @@ steps:
   displayName: 'Get latest CodeQL package. Install on Agent.'
 - script: |
   ./codeql-runner-linux analyze \
-  --repository yhampl3/mulerepo \
-  --github-url https://github.com \
-  --ref main
+    --repository yhampl3/mulerepo \
+    --github-url https://github.com \
+    --ref main
   displayName: 'Populate the CodeQL runner databases, analyze them, and upload the results to GitHub.'
